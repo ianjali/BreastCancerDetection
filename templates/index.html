@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset = "utf-8" />
+	<title color="pink">Breast Cancer Awareness</title>
+  <!--<link rel="shortcut icon" href="logo.png"> -->
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+
+	 <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<style>
+  		html{
+  			scroll-behavior: smooth;
+		}
+		.btn-warning{
+			background-color: #ff77ae;
+			border-color: #e9ecef4f
+		}
+		.bgimg{
+			background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(0, 0, 0, 0.50)), url(../static/images/image6.jpeg);
+			background-size: 100% 100%;
+			background-attachment: fixed;
+			width: 100%;
+			height: 640px;
+			}
+		a{
+color:#636668
+}
+	.text-danger{
+		color : #ff79ad;
+	}
+	.btn-warning{
+		background-color:#664c57bf
+		border-color : #e9ecef4f
+	}
+	.text-heading{
+		color: #684040
+	}
+
+	</style>
+</head>
+<body>
+
+	<div class="bgimg">
+		<nav class="navbar navbar-expand-md bg-light navbar-light fixed-top">
+			<div class="container">
+        		<img src="static/images/logo2.png">
+				<a href=""class="navbar-brand text-danger font-weight-bold">Breast Cancer Awareness</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsenavbar">
+					<span class="navbar-toggler-icon"> </span>
+                </button>
+
+                <div class="collapse navbar-collapse text-center " id="collapsenavbar">
+                	<ul class="navbar-nav ml-auto ">
+                		<li class="nav-item">
+                			<a href="#COMMUNITY" class="nav-link text-black">  COMMUNITY  </a>
+                		</li>
+
+                	</ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container text-center hearderset">
+        	<h2 class="text-heading">Welcome to  </h2>
+			<h1 class="text-heading">  Breast Cancer Diagnosis And Detection </h1>
+			<form class='form_code_Nuclei'action="/prediction" method="GET">
+				<button class="btn btn-warning text-white btn-lg ">Diagnosis from Cell Nuclei features</button>
+			</form>
+
+			<form class='form_code_Image'action="/prediction" method="GET">
+				<button class="btn btn-warning text-white btn-lg ">Diagnosis from Mammogram</button>
+			</form>
+        </div>
+
+    </div>
+
+ <!--
+==================Community ================== -->
+	<section class="container community text-center">
+		<h1 id="COMMUNITY"> COMMUNITY </h1>
+		<p>"Let’s Get It Off Our Chests"</p>
+		<p>Online communities and support groups here.</p>
+		<div class="row rowsetting">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto  bg-light">
+				<div class=" imgsetting d-block m-auto bg-warning "> <i class="fa fa-users fa-3x"> </i></div>
+				<h2><a target="_blank" href="https://www.breastcancer.org/">Breast Cancer Organization</a></h2>
+				<p> Dr. Marisa Weiss, a nationally renowned breast oncologist, founded Breastcancer.org to address these growing needs. Breastcancer.org is dedicated to providing the most reliable, complete, and up-to-date information about breast cancer</p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto">
+				<div class=" imgsetting d-block m-auto bg-warning"> <i class="fa fa-users fa-3x"> </i></div>
+				<h2><a target="_blank" href="https://www.lbbc.org/">Living Beyond Breast Cancer</a></h2>
+				<p>Living Beyond Breast Cancer is a national nonprofit that
+					connects people with trusted information and a community of support.</p>
+			</div>
+
+			<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto  bg-light">
+				<div class=" imgsetting d-block m-auto bg-warning"> <i class="fa fa-users fa-3x"> </i></div>
+				<h2><a target="_blank" href="https://www.nationalbreastcancer.org/">National Breast Care</a></h2>
+				<p> The National Breast Cancer Foundation provides inspiration and support services to women battling breast cancer.
+					They also provide free mammograms through their network of hospitals across the U.S.</p>
+			</div>
+		</div>
+	</section>
+	<!-- ========================================================== -->
+
+
+
+</body>
+</html>

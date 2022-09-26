@@ -1,0 +1,142 @@
+<html>
+	<head>
+	<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		<title>Breast Cancer Test</title>
+	</head>
+	<body>
+	<!-- Java Script -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+		<!-- Navbar-->
+		<nav class="navbar navbar-dark bg-dark">
+			<span class="navbar-brand mb-0 h1">Breast Cancer Test</span>
+		</nav>
+		<div class="container">
+			<br>
+			<!--Form-->
+			<form action = "{{url_for('prediction')}}" method ="POST" >
+				<fieldset>
+				<legend>Breast Cancer Detection Form</legend><br>
+				  <div class="card card-body" >
+					  <div class="form-group  row">
+						<div class="col-sm-3">
+							<!--<label for="radius_mean">Clump Thickness</label>-->
+							<label for="radius_mean">Radius Mean</label>
+							<input type="number" class="form-control" id="radius_mean" name="radius_mean" value="17.99" required>
+							<label>Radius Standard Error</label>
+							<input type="number" class="form-control" id="radius_se" name="radius_se" value="18" required>
+							<label>Radius Largest Cell</label>
+							<input type="number" class="form-control" id="radius_worst" name="radius_worst" value="20" required>
+						</div>
+						<div class="col-sm-3">
+							<label for="texture_mean">Uniformity of Cell Mean</label>
+							<input type="number" class="form-control" id="texture_mean" name="texture_mean" value="10.38" required>
+							<label for="texture_se">Uniformity Standard Error</u></label>
+							<input type="number" class="form-control" id="texture_se" name="texture_se" value="12.38" required>
+							<label for="texture_worst">Uniformity for Largest Cell</label>
+							<input type="number" class="form-control" id="texture_worst" name="texture_worst" value="15.38" required>
+					   </div>
+					  </div>
+					  <br>
+					  <div class="form-group  row">
+						  <div class="col-sm">
+							<label for="perimeter_mean">Perimeter Mean</label>
+							<input type="number" class="form-control" id="perimeter_mean" name="perimeter_mean" value="15.38" required>
+							<label for="perimeter_se">Perimeter Standard Error</label>
+							<input type="number" class="form-control" id="perimeter_se" name="perimeter_se" value="16.38" required>
+							  <label for="perimeter_worst">Perimeter Largest Cell</label>
+							<input type="number" class="form-control" id="perimeter_worst" name="perimeter_worst" value="17.38" required>
+						  </div>
+						  <div class="col-sm">
+							<label for="area_mean">Marginal Adhesion Mean</label>
+							<input type="number" class="form-control" id="area_mean" name="area_mean" value="15" required>
+							<label for="area_se">Marginal Adhesion SE</label>
+							<input type="number" class="form-control" id="area_se" name="area_se"  value="17" required>
+							<label for="area_worst">Marginal Adhesion Worst</label>
+							<input type="number" class="form-control" id="area_worst" name="area_worst" value="18" required>
+
+						  </div>
+						  <div class="col-sm">
+							<label for="smoothness_mean">Single Epithelial Mean Size</label>
+							<input type="number" class="form-control" id="smoothness_mean" name="smoothness_mean" value="19" required>
+							<label for="smoothness_se">Single Epithelial SE</label>
+							<input type="number" class="form-control" id="smoothness_se" name="smoothness_se" value="20" required>
+							<label for="smoothness_worst">Single Epithelial Largest Cell</label>
+							<input type="number" class="form-control" id="smoothness_worst" name="smoothness_worst" value="22.38" required>
+						  </div>
+						  <div class="col-sm">
+							<label for="compactness_mean">Bare Nuclei Mean</label>
+							<input type="number" class="form-control" id="compactness_mean" name="compactness_mean" value="16.38" required>
+							<label for="compactness_se">Bare Nuclei SE</label>
+							<input type="number" class="form-control" id="compactness_se" name="compactness_se" value="17.38" required>
+							  <label for="compactness_worst">Bare Nuclei Largest</label>
+							<input type="number" class="form-control" id="compactness_worst" name="compactness_worst" value="20.38" required>
+						</div>
+					  </div>
+
+					  <br>
+					  <div class="form-group row">
+							<div class="col-sm">
+								<label for="concavity_mean">Bland Chromatin Mean</label>
+								<input type="number" class="form-control" id="concavity_mean" name="concavity_mean" value="20.38" required>
+								<label for="concavity_se">Bland Chromatin SE</label>
+								<input type="number" class="form-control" id="concavity_se" name="concavity_se" value="2.38" required>
+								<label for="concavity_worst">Bland Chromatin Worst</label>
+								<input type="number" class="form-control" id="concavity_worst" name="concavity_worst" value="30.38" required>
+
+							  </div>
+							  <div class="col-sm">
+								<label for="concave points_mean">Normal Nucleoli Mean</label>
+								<input type="number" class="form-control" id="concave points_mean" name="concave points_mean" value="12.38" required>
+								<label for="concave points_se">Normal Nucleoli SE</label>
+								<input type="number" class="form-control" id="concave points_se" name="concave points_se" value="12.38" required>
+								<label for="concave points_worst">Normal Nucleoli Largest</label>
+								<input type="number" class="form-control" id="concave points_worst" name="concave points_worst" value="12.38"  required>
+							  </div>
+							  <div class="col-sm">
+								<label for="symmetry_mean">Mitoses Mean</label>
+								<input type="number" step="any" class="form-control" id="symmetry_mean" name="symmetry_mean" value="12.38" required>
+								<label for="symmetry_se">Mitoses SE</label>
+								<input type="number" step="any" class="form-control" id="symmetry_se" name="symmetry_se" value="12.38" required>
+								<label for="symmetry_worst">Mitoses Worst</label>
+								<input type="number" step="any" class="form-control" id="symmetry_worst" name="symmetry_worst" value="12.38"  required>
+							  </div>
+							  <div class="col-sm">
+								<label for="fractal_dimension_mean">fractal_dimension_mean</label>
+								<input type="number" step="any" class="form-control" id="fractal_dimension_mean" name="fractal_dimension_mean" value="12.38" required>
+								 <label for="fractal_dimension_se">fractal_dimension_se</label>
+								<input type="number" step="any" class="form-control" id="fractal_dimension_se" name="fractal_dimension_se" value="12.38" required>
+								 <label for="fractal_dimension_worst">fractal_dimension_worst</label>
+								<input type="number" step="any" class="form-control" id="fractal_dimension_worst" name="fractal_dimension_worst" value="12.38" required>
+							  </div>
+						  </div>
+						  <br>
+
+					  </div>
+					  <br>
+					  <div class="form-group">
+						<input class="btn btn-primary" type="submit" value="Result">
+					  </div>
+
+					  <!--Prediction Result-->
+					  <div id ="result">
+							<strong style="color:green">{{result}}</strong>
+					 </div>
+					<div id ="result1">
+							<strong style="color:red">{{result1}}</strong>
+					 </div>
+				     </div>
+			 </fieldset>
+			</form>
+
+		</div>
+
+	</body>
+</html>

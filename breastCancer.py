@@ -122,11 +122,13 @@ print(df_clean.shape)
 scale = RobustScaler()
 train_x = scale.fit_transform(X_train)
 test_x = scale.transform(X_test)
+
 # %%
 pca = PCA()
 pca.fit(train_x)
+#print(pca.explained_variance_ratio_)
 exp_var_cumul = np.cumsum(pca.explained_variance_ratio_)
-
+print(exp_var_cumul)
 fig = px.line(x=np.arange(1,exp_var_cumul.shape[0]+1), y=exp_var_cumul, markers=True, labels={'x':'# of components', 'y':'Cumulative Explained Variance'})
 
 fig.add_shape(type='line', line=dict(dash='dash'),x0=0, x1=30, y0=0.95, y1=0.95)
@@ -136,7 +138,7 @@ fig.show()
 
 #%%
 # Fit the 
-# Fit the RFE model to identify the optimum number of features .
+# Fit the RFECV model to identify the optimum number of features .
 rfecv = RFECV(cv=StratifiedKFold(n_splits=10, random_state=random_state, shuffle=True),
       estimator=DecisionTreeClassifier(), scoring='accuracy')
     
@@ -269,6 +271,7 @@ def compare_pca(n_components):
         pca = PCA(n_components=n, svd_solver="full",random_state=random_state)
         X_PCA_train = pca.fit_transform(train_x)
         X_PCA_test = pca.transform(test_x)
+        print(X_PCA_train.shape)
         # Model Selection
         cv_results, best_param, best_result = modelselection(classifier_log,parameters_log, scoring, X_PCA_train)
         training_time = np.mean(np.array(cv_results['mean_fit_time'])+np.array(cv_results['mean_score_time']))
@@ -295,7 +298,10 @@ print('The best accuracy of logistic regression classifier is: %.3f'%  max(PCA_t
 #%%
 pca = PCA(n_components=(i+1)*2, svd_solver="full",random_state=random_state)
 X_PCA_train = pca.fit_transform(train_x)
+print(f' shape of X_PCA_train : {type(train_x[1])} ')
 X_PCA_test = pca.transform(test_x)
+print(f' shape of X_PCA_Test : {X_PCA_test[1]} ')
+#%%
 # Model Selection
 cv_results, best_param, best_result = modelselection(classifier_log,parameters_log, scoring, X_PCA_train)
 
@@ -317,7 +323,7 @@ fig, axs = plt.subplots(nrows=3, ncols=3, figsize=(15, 15))
 
 for n, ax in zip(thresholds,axs.ravel()):
     y_score = logReg_PCA.predict_proba(X_PCA_test)[:,1] > n
-    
+    print(y_score)
     cm = confusion_matrix(y_test, y_score)
     
     tp = cm[1,1]
@@ -357,12 +363,27 @@ for container in ax.containers:
 plt.show()
 
 #%%
-#=================
+print("=================finished execution==============")
 
 # %%
 
 #saving our model
 #filename = 'model.pkl'
-#pickle.dump(model, open(filename, 'wb'))
+#pickle.dump(logReg_PCA, open(filename, 'wb'))
+#filename_pca= 'pca.pkl'
+#pickle.dump(pca, open(filename_pca,"wb"))
+#%%
+#filename_scaler = 'scaler.pkl'
+#pickle.dump(scale, open(filename_scaler,"wb"))
 # load the model from disk
 #loaded_model = pickle.load(open(filename, 'rb'))
+# %%
+#prediction
+
+#%%
+
+#%%
+
+
+
+# %%
