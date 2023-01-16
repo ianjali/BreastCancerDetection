@@ -15,18 +15,24 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+	<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<style>
   		html{
   			scroll-behavior: smooth;
 		}
+		.hearderset{
+	padding-top: 150px;
+	box-sizing: border-box;
+
+}
 		.btn-warning{
-			background-color: #ff77ae;
+			background-color: #c75d87;
 			border-color: #e9ecef4f
 		}
 		.bgimg{
-			background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(0, 0, 0, 0.50)), url(../static/images/image6.jpeg);
+			background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(0, 0, 0, 0.50)), url(../static/images/image62.jpg);
 			background-size: 100% 100%;
 			background-attachment: fixed;
 			width: 100%;
@@ -45,16 +51,31 @@ color:#636668
 	.text-heading{
 		color: #684040
 	}
-
+	.bg-warning {
+    background-color: #dfadc7;
+    $imgsetting d-block m-auto bg-warning : $white ;
+}
+#color-overlay{
+position : absolute;
+top: 0;
+left : 0;
+width: 100%;
+height: 100%;
+background-color : black;
+opacity: 0.6;
+z-index: 3000;
+}
 	</style>
 </head>
 <body>
 
 	<div class="bgimg">
+
 		<nav class="navbar navbar-expand-md bg-light navbar-light fixed-top">
 			<div class="container">
-        		<img src="static/images/logo2.png">
-				<a href=""class="navbar-brand text-danger font-weight-bold">Breast Cancer Awareness</a>
+        		<img src="static/images/logo2.png" width="80" height="50">
+				<!--<a href=""class="navbar-brand text-danger font-weight-bold">Breast Cancer Awareness</a>-->
+				<a href=""class="navbar-brand" style="color:black; font-weight:400">Breast Cancer Awareness</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsenavbar">
 					<span class="navbar-toggler-icon"> </span>
                 </button>
@@ -62,7 +83,13 @@ color:#636668
                 <div class="collapse navbar-collapse text-center " id="collapsenavbar">
                 	<ul class="navbar-nav ml-auto ">
                 		<li class="nav-item">
-                			<a href="#COMMUNITY" class="nav-link text-black">  COMMUNITY  </a>
+                			<a href="#ABOUT" class="nav-link text-black" style="font-size : 16px">  ABOUT US  </a>
+                		</li>
+						<li class="nav-item">
+                			<a href="#COMMUNITY" class="nav-link text-black" style="font-size : 16px">  COMMUNITY  </a>
+                		</li>
+						<li class="nav-item">
+                			<a href="#CONTACTUS" class="nav-link text-black" style="font-size : 16px">  CONTACT US  </a>
                 		</li>
 
                 	</ul>
@@ -70,8 +97,9 @@ color:#636668
             </div>
         </nav>
         <div class="container text-center hearderset">
-        	<h2 class="text-heading">Welcome to  </h2>
-			<h1 class="text-heading">  Breast Cancer Diagnosis And Detection </h1>
+
+        	<h2 class="text-heading" style="font-size:48px; color:black" >Welcome to  </h2>
+			<h1 class="text-heading" style="font-size:64px; font-weight:700; color:black ">  Breast Cancer Diagnosis And Detection </h1>
 			<form class='form_code_Nuclei'action="/prediction" method="GET">
 				<button class="btn btn-warning text-white btn-lg ">Diagnosis from Cell Nuclei features</button>
 			</form>
@@ -82,6 +110,11 @@ color:#636668
         </div>
 
     </div>
+ <!-- ============================================== -->
+	<section class="container community text-center">
+		<h1 id="ABOUT"> About Breast Cancer </h1>
+	</section>
+
 
  <!--
 ==================Community ================== -->
@@ -89,21 +122,23 @@ color:#636668
 		<h1 id="COMMUNITY"> COMMUNITY </h1>
 		<p>"Let’s Get It Off Our Chests"</p>
 		<p>Online communities and support groups here.</p>
+
+
 		<div class="row rowsetting">
 			<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto  bg-light">
-				<div class=" imgsetting d-block m-auto bg-warning "> <i class="fa fa-users fa-3x"> </i></div>
+				<img src="static/images/livingbeyondbreastcancer.PNG" class="rounded-circle" alt="Cinque Terre" width="130" height="90">
 				<h2><a target="_blank" href="https://www.breastcancer.org/">Breast Cancer Organization</a></h2>
 				<p> Dr. Marisa Weiss, a nationally renowned breast oncologist, founded Breastcancer.org to address these growing needs. Breastcancer.org is dedicated to providing the most reliable, complete, and up-to-date information about breast cancer</p>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto">
-				<div class=" imgsetting d-block m-auto bg-warning"> <i class="fa fa-users fa-3x"> </i></div>
+				<img src="static/images/breastcancerorg.PNG" class="rounded-circle" alt="Cinque Terre" width="130" height="90">
 				<h2><a target="_blank" href="https://www.lbbc.org/">Living Beyond Breast Cancer</a></h2>
 				<p>Living Beyond Breast Cancer is a national nonprofit that
 					connects people with trusted information and a community of support.</p>
 			</div>
 
 			<div class="col-lg-4 col-md-4 col-sm-4 col-10 d-block m-auto  bg-light">
-				<div class=" imgsetting d-block m-auto bg-warning"> <i class="fa fa-users fa-3x"> </i></div>
+				<img src="static/images/nationalbreastcancer.PNG" class="rounded-circle" alt="Cinque Terre" width="130" height="90">
 				<h2><a target="_blank" href="https://www.nationalbreastcancer.org/">National Breast Care</a></h2>
 				<p> The National Breast Cancer Foundation provides inspiration and support services to women battling breast cancer.
 					They also provide free mammograms through their network of hospitals across the U.S.</p>
@@ -111,7 +146,17 @@ color:#636668
 		</div>
 	</section>
 	<!-- ========================================================== -->
+<footer class="container-fluid text-center">
+  <!-- Linkedin -->
+	 <a
+  class="btn btn-primary btn-lg btn-floating"
+  style="background-color: #ac2bac;"
+  href="#!"
+  role="button"
+  ><i class="fab fa-github"></i
+></a>
 
+</footer>
 
 
 </body>
